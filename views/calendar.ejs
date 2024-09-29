@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>カレンダー</title>
+</head>
+<body>
+    <h1>予約カレンダー</h1>
+    <p><a href="/mypage">マイページに戻る</a></p>
+    
+    <% for (const shop in rsvDate) { %>
+        <h2><%= shop %> 予約</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>日付</th>
+                    <th>予約状況</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (const date in rsvDate[shop]) { %>
+                    <tr>
+                        <td><%= new Date(date).toLocaleDateString('ja-JP') %></td>
+                        <td><%= rsvDate[shop][date] === 'full' ? '×' : '〇' %></td>
+                        <td>
+                            <% if (rsvDate[shop][date] === 'empty') { %>
+                                <a href="/reservation/create/<%= shop %>/<%= date %>">予約を作成</a>
+                            <% } %>
+                        </td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    <% } %>
+</body>
+</html>

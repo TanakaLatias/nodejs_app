@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>予約削除確認</title>
+</head>
+<body>
+    <h1>予約削除確認</h1>
+    <p>以下の予約を削除してもよろしいですか？</p>
+
+    <form action="/reservation/delete/<%= rsvId %>" method="POST" id="deleteForm">
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit">予約を削除する</button>
+    </form>
+
+    <p><a href="/mypage">マイページに戻る</a></p>
+</body>
+</html>

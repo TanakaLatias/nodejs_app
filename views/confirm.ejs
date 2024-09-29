@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>予約確認</title>
+</head>
+<body>
+    <h1>予約確認</h1>
+    <p>以下の内容で予約を確定します。</p>
+    
+    <table>
+        <tr>
+            <th>店舗</th>
+            <th>日付</th>
+        </tr>
+        <tr>
+            <td><%= shop %></td>
+            <td><%= new Date(date).toLocaleDateString('ja-JP') %></td>
+        </tr>
+    </table>
+    
+    <form action="/reservation/create/<%= shop %>/<%= date %>" method="post">
+        <button type="submit">予約を確定する</button>
+    </form>
+    
+    <a href="/calendar">キャンセル</a>
+</body>
+</html>

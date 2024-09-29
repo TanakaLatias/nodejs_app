@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ユーザーの削除</title>
+</head>
+<body>
+    <h1>ユーザーの削除</h1>
+    <p>本当にユーザーを削除しますか？この操作は元に戻せません。</p>
+    <form action="/mypage/delete" method="POST" onsubmit="return confirm('本当に削除しますか？');">
+        <button type="submit">削除</button>
+    </form>
+    <p><a href="/mypage">マイページに戻る</a></p>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マイページ</title>
+</head>
+<body>
+    <h1>マイページ</h1>
+
+    <section>
+        <h2>ユーザー情報</h2>
+        <p>ユーザー名: <%= user.username %></p>
+        <p>メールアドレス: <%= user.email %></p>
+    </section>
+
+    <section>
+        <h2>予約一覧</h2>
+        <% if (reservations.length > 0) { %>
+            <ul>
+                <% reservations.forEach(function(reservation) { %>
+                    <li>
+                        店舗: <%= reservation.shop %><br>
+                        予約日: <%= new Date(reservation.reservationDate).toLocaleDateString() %><br>
+                        <% if (reservation.paid) { %>
+                            <span>支払い済み</span>
+                        <% } else { %>
+                            <a href="/pay/<%= reservation._id %>">支払う</a>
+                            <a href="/reservation/delete/<%= reservation._id %>">予約削除</a>
+                        <% } %>
+                    </li>
+                <% }); %>
+            </ul>
+        <% } else { %>
+            <p>予約はありません。</p>
+        <% } %>
+        <p><a href="/calendar">カレンダーから予約する</a></p>
+    </section>
+
+    <section>
+        <p><a href="/mypage/update">ユーザー情報を更新する</a></p>
+        <p><a href="/mypage/signout">サインアウト</a></p>
+    </section>
+
+</body>
+</html>

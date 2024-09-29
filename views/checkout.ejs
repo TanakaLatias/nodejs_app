@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>チェックアウト</title>
+</head>
+<body>
+    <h1>チェックアウト</h1>
+    
+    <p>予約ID: <strong><%= rsvId %></strong></p>
+    <p>予約日時: <strong><%= new Date(reservationDate).toLocaleDateString('ja-JP') %></strong></p>
+    <p>店舗: <strong><%= shop %></strong></p>
+    <p>支払い済み: <strong><%= paid ? 'はい' : 'いいえ' %></strong></p>
+
+    <form action="/pay/create-checkout-session/<%= rsvId %>" method="POST">
+        <button type="submit" id="checkout-button">Checkout</button>
+    </form>
+</body>
+</html>

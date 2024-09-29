@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>サインアップ</title>
+</head>
+<body>
+    <h1>サインアップ</h1>
+    
+    <form action="/auth/signup" method="post">
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username">
+        
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email">
+        
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password">
+        
+        <button type="submit">Sign Up</button>
+    </form>
+
+    <p>すでにアカウントをお持ちですか？ <a href="/auth/signin">サインインはこちら</a></p>
+</body>
+</html>
+
+
